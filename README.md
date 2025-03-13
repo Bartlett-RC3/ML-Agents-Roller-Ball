@@ -19,7 +19,7 @@ The following is included:
 - [ ] Batch-training using bash
 
 
-## Tracking custom metrics
+## Tracking Custom Metrics
 
 This projects includes implemented custom metrics [here](https://github.com/Bartlett-RC3/ML-Agents-Roller-Ball/blob/main/Assets/RollerAgent.cs#L21).
 
