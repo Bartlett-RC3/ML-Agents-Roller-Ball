@@ -11,9 +11,14 @@ public class RollerAgent : Agent
     Rigidbody rBody;
     public Transform Target;
     public float forceMultiplier = 10;
+    StatsRecorder statsRecorder;
+
+    float cumulativeActionX = 0f;
+    float cumulativeActionZ = 0f;
 
     void Start()
     {
+        this.statsRecorder = Academy.Instance.StatsRecorder;
         this.rBody = GetComponent<Rigidbody>();
     }
 
@@ -36,6 +41,12 @@ public class RollerAgent : Agent
     {
         ResetAgent();
         ResetTargetRandomPosition();
+
+        this.statsRecorder.Add("Custom Metrics/Cumulative Action X (abs)", this.cumulativeActionX);
+        this.statsRecorder.Add("Custom Metrics/Cumulative Action Z (abs)", this.cumulativeActionZ);
+
+        this.cumulativeActionX = 0f;
+        this.cumulativeActionZ = 0f;
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -51,6 +62,12 @@ public class RollerAgent : Agent
         sensor.AddObservation(rBody.velocity.y);
 
         // total observation size -> 8
+    }
+
+    private void RecordCustomMetrics(ActionBuffers actionBuffers)
+    {
+        this.cumulativeActionX += Mathf.Abs(actionBuffers.ContinuousActions[0]);
+        this.cumulativeActionZ += Mathf.Abs(actionBuffers.ContinuousActions[1]);
     }
 
     private void Move(ActionBuffers actionBuffers)
@@ -90,6 +107,7 @@ public class RollerAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
+        RecordCustomMetrics(actionBuffers);
         Move(actionBuffers);
         CloseToTargetReward();
         OnPlaneCheck();
