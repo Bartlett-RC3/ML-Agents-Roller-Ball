@@ -5,7 +5,7 @@ This is a repository that is being used for the Intro to ML-Agents turorial seri
 The following is included:
 
 - [X] Roller Ball agent implemented using ML-Agents package
-- [ ] Tracking custom metrics
+- [X] Tracking custom metrics
 - [ ] Imitation learning
 - [X] Vector Observations
 - [ ] Visual Observations
