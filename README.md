@@ -51,3 +51,7 @@ public override void OnActionReceived(ActionBuffers actionBuffers)
 }
 ...
 ```
+
+## Docs on: Learning rate, gamma, batch-size, buffer-size ablations
+
+https://github.com/gzrjzcx/ML-agents/blob/master/docs/Training-PPO.md
