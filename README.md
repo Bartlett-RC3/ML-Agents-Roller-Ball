@@ -6,16 +6,16 @@ The following is included:
 
 - [X] Roller Ball agent implemented using ML-Agents package
 - [X] Tracking custom metrics
-- [ ] Imitation learning
-  - [ ] Human baseline setup
+- [X] Imitation learning
+  - [X] Human baseline setup
 - [X] Vector Observations
-- [ ] Visual Observations
-- [ ] Multi-Agents setup
-- [ ] Multi-Agent non-parameter sharing
-- [ ] Learning rate, gamma, batch-size, buffer-size ablations
+- [X] Visual Observations
+- [X] Multi-Agents setup
+- [X] Multi-Agent non-parameter sharing
+- [X] Learning rate, gamma, batch-size, buffer-size ablations
 - [ ] Memory module
 - [ ] Curiosity
-- [ ] Training ML-Agents in terminal only
+- [X] Training ML-Agents in terminal only
 - [ ] Batch-training using bash
 
 
